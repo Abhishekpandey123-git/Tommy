@@ -1,0 +1,16 @@
+{
+  "manifest_version": 3,
+  "name": "AI Reading Assistant",
+  "version": "0.1.0",
+  "description": "Explain difficult words, sentences and paragraphs in simple English and Hindi.",
+  "permissions": ["contextMenus", "storage", "activeTab"],
+  "host_permissions": ["http://localhost:8000/*"],
+  "background": { "service_worker": "background.js", "type": "module" },
+  "action": { "default_title": "AI Reading Assistant", "default_popup": "popup.html" },
+  "content_scripts": [{
+    "matches": ["<all_urls>"],
+    "js": ["content.js"],
+    "css": ["content.css"],
+    "run_at": "document_idle"
+  }]
+}
